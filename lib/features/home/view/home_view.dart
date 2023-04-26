@@ -2,6 +2,7 @@ import 'package:attendy/constants/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -22,8 +23,9 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 20,
-        title: const Text('Home'),
+        elevation: 0,
+        title: const Text('Attendy'),
+        centerTitle: true,
       ),
       body: IndexedStack(
         index: _selectedIndex,
@@ -31,13 +33,7 @@ class _HomeViewState extends State<HomeView> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
+          color: HexColor('#FFFFFF'),
         ),
         child: SafeArea(
           child: Padding(
