@@ -28,26 +28,28 @@ class MyButton extends StatelessWidget {
             color: HexColor('#44564a'),
             borderRadius: BorderRadius.circular(30),
           ),
-          child: isLoading ? const Center(
-            child: SizedBox(
-              height: 25,
-              width: 25,
-              child: CircularProgressIndicator(
-                color: Colors.white70,
-                strokeWidth: 2,
-              ),
-            ),
-          ) : Text(
-        buttonText,
-        textAlign: TextAlign.center,
-          style: GoogleFonts.poppins(
-          color: Colors.white,
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
+          child: isLoading
+              ? const Center(
+                  child: SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: CircularProgressIndicator(
+                      color: Colors.white70,
+                      strokeWidth: 2,
+                    ),
+                  ),
+                )
+              : Text(
+                  buttonText,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
         ),
       ),
-    ),)
-    ,
     );
   }
 }
