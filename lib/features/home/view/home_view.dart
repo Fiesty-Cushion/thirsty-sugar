@@ -21,8 +21,9 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: HexColor('#F0F0F0'),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: const Text('Attendy'),
         centerTitle: true,
@@ -50,12 +51,12 @@ class _HomeViewState extends State<HomeView> {
               color: Colors.black,
               tabs: const [
                 GButton(
-                  icon: CupertinoIcons.home,
+                  icon: Icons.home_outlined,
                   text: 'Home',
                 ),
                 GButton(
-                  icon: CupertinoIcons.heart,
-                  text: 'Likes',
+                  icon: CupertinoIcons.book,
+                  text: 'Routine',
                 ),
                 GButton(
                   icon: CupertinoIcons.search,
