@@ -7,6 +7,10 @@ void showSnackBar(BuildContext context, String content) {
   );
 }
 
+String getUsernameFromEmail(String email){
+  return email.split('@')[0];
+}
+
 Future<void> showQuickAlert(
     BuildContext context, void Function() onLogOut) async {
   return showDialog<void>(
@@ -73,11 +77,11 @@ Future<void> showQuickAlert(
                 },
               ),
               InkWell(
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                 child: Ink(
                   decoration: BoxDecoration(
                     color: HexColor('#44564a'),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                   ),
                   height: 40,
                   width: 100,
