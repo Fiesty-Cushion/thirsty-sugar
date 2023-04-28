@@ -1,4 +1,5 @@
-import 'package:attendy/features/settings/view/profile.dart';
+import 'package:attendy/features/routine/view/routine_view.dart';
+import 'package:attendy/features/settings/view/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class UIConstants {
@@ -12,10 +13,7 @@ class UIConstants {
       'Home',
       style: optionStyle,
     ),
-    Text(
-      'Likes',
-      style: optionStyle,
-    ),
+    RoutineView(),
     Text(
       'Search',
       style: optionStyle,
