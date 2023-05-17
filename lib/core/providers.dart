@@ -1,24 +1,10 @@
-import 'package:appwrite/appwrite.dart';
-import 'package:attendy/constants/appwrite_constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final appwriteClientProvider = Provider((ref) {
-  Client client = Client();
-  return client
-      .setEndpoint(AppwriteConstants.endPoint)
-      .setProject(AppwriteConstants.projectId)
-      .setSelfSigned(status: true);
-});
+final firebaseAuthProvider = Provider((ref) => FirebaseAuth.instance);
 
-final appwriteAccountProvider = Provider((ref) {
-  final client = ref.watch(appwriteClientProvider);
-  return Account(client);
-});
+final authStateChangesProvider = StreamProvider((ref) => ref.watch(firebaseAuthProvider).authStateChanges());
 
-final appwriteDatabaseProvider = Provider((ref) {
-  final client = ref.watch(appwriteClientProvider);
-  return Databases(client);
-});
 
 
 

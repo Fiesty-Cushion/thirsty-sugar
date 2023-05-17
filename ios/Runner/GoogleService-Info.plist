@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>34784138779-6l0b5kbvlupuu4q9vtqmf2fcf3nuqsct.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.34784138779-6l0b5kbvlupuu4q9vtqmf2fcf3nuqsct</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBmVRuqyfMUep5CVWai92ZG4ZUEHaM6GxU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>34784138779</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.attendy</string>
+	<key>PROJECT_ID</key>
+	<string>attendr-f759b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>attendr-f759b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:34784138779:ios:72e9d6a0007969ef028abe</string>
+</dict>
+</plist>

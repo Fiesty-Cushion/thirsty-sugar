@@ -1,5 +1,4 @@
 import 'package:attendy/core/utils.dart';
-import 'package:attendy/features/auth/controller/auth_controller.dart';
 import 'package:attendy/features/settings/widgets/settings_group.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +14,9 @@ class ProfileView extends ConsumerStatefulWidget {
 }
 
 class _ProfileViewState extends ConsumerState<ProfileView> {
-  void onLogOut() {
-    ref.read(authControllerProvider.notifier).logOut(context);
-  }
+  // void onLogOut() {
+  //   ref.read(authControllerProvider.notifier).logOut(context);
+  // }
 
   bool isSwitchOn = false;
 
@@ -157,7 +156,7 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                   child: InkWell(
                     child: SettingsItem(
                       onTap: () {
-                        showQuickAlert(context, onLogOut);
+                        showQuickAlert(context, (){}/*onLogOut*/);
                       },
                       icons: Icons.exit_to_app_rounded,
                       iconStyle: IconStyle(

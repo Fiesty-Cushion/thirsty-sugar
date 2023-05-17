@@ -67,9 +67,6 @@ class _RoutineViewState extends State<RoutineView> {
               Center(
                 child: Text('It\'s Friday'),
               ),
-              Center(
-                child: Text('It\'s Saturday'),
-              ),
             ],
           )),
     );

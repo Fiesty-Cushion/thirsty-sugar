@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "34784138779",
+    "project_id": "attendr-f759b",
+    "storage_bucket": "attendr-f759b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34784138779:android:156ae0afb53cb776028abe",
+        "android_client_info": {
+          "package_name": "com.example.attendy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34784138779-cfpsbj69c9j5f86kto4t52hq18reb2dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDidOwU3O5xjOL-5x2nXWie5dWMLbeZc1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34784138779-cfpsbj69c9j5f86kto4t52hq18reb2dc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

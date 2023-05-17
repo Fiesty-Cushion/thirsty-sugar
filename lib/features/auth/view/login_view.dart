@@ -1,7 +1,8 @@
-import 'package:attendy/features/auth/controller/auth_controller.dart';
 import 'package:attendy/features/auth/view/signup_view.dart';
 import 'package:attendy/features/auth/widgets/auth_field.dart';
 import 'package:attendy/features/auth/widgets/my_button.dart';
+import 'package:attendy/features/home/view/home_view.dart';
+import 'package:attendy/resources/auth_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +12,8 @@ import 'dart:math' as math;
 class LoginView extends ConsumerStatefulWidget {
   const LoginView({super.key});
 
-  static route() => MaterialPageRoute(
+  static route() =>
+      MaterialPageRoute(
         builder: (context) => const LoginView(),
       );
 
@@ -23,6 +25,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  bool isLoading = false;
+
   @override
   void dispose() {
     super.dispose();
@@ -30,18 +34,30 @@ class _LoginViewState extends ConsumerState<LoginView> {
     passwordController.dispose();
   }
 
-  void onLogIn() {
-    ref.read(authControllerProvider.notifier).logIn(
+  void onLogIn() async{
+
+    setState(() {
+      isLoading = true;
+    });
+    String status = await FirebaseAuthMethods().userLogIn(
         email: emailController.text,
         password: passwordController.text,
-        context: context
-    );
+        context: context);
+    setState(() {
+      isLoading = false;
+    });
+
+    if (status == 'success') {
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const HomeView()), (route) => false);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    final isLoading = ref.watch(authControllerProvider);
+    double screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: true,
@@ -125,7 +141,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                     height: 20,
                                   ),
                                   MyButton(
-                                    onPressed: () async {
+                                    onPressed: () async{
                                       onLogIn();
                                     },
                                     buttonText: 'Submit',
@@ -136,7 +152,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                   ),
                                   Padding(
                                     padding:
-                                        const EdgeInsets.fromLTRB(35, 0, 0, 0),
+                                    const EdgeInsets.fromLTRB(35, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         Text("Don't have an account?",
@@ -152,8 +168,9 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                               color: HexColor("#44564a"),
                                             ),
                                           ),
-                                          onPressed: () => Navigator.push(
-                                              context, SignupView.route()),
+                                          onPressed: () =>
+                                              Navigator.push(
+                                                  context, SignupView.route()),
                                         )
                                       ],
                                     ),

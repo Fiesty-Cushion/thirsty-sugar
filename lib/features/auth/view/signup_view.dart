@@ -1,12 +1,11 @@
-import 'package:attendy/features/auth/controller/auth_controller.dart';
 import 'package:attendy/features/auth/view/login_view.dart';
 import 'package:attendy/features/auth/widgets/my_button.dart';
+import 'package:attendy/resources/auth_methods.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class SignupView extends ConsumerStatefulWidget {
+class SignupView extends StatefulWidget {
   const SignupView({super.key});
 
   static route() => MaterialPageRoute(
@@ -14,12 +13,14 @@ class SignupView extends ConsumerStatefulWidget {
       );
 
   @override
-  ConsumerState<SignupView> createState() => _SignupViewState();
+  State<SignupView> createState() => _SignupViewState();
 }
 
-class _SignupViewState extends ConsumerState<SignupView> {
+class _SignupViewState extends State<SignupView> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  bool isLoading = false;
 
   @override
   void dispose() {
@@ -28,17 +29,22 @@ class _SignupViewState extends ConsumerState<SignupView> {
     passwordController.dispose();
   }
 
-  void onSignUp() {
-    ref.read(authControllerProvider.notifier).signUp(
+  void onSignUp() async{
+    setState(() {
+      isLoading = true;
+    });
+    await FirebaseAuthMethods().userSignUp(
         email: emailController.text,
         password: passwordController.text,
         context: context);
+    setState(() {
+      isLoading = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    final isLoading = ref.watch(authControllerProvider);
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: true,
@@ -70,7 +76,8 @@ class _SignupViewState extends ConsumerState<SignupView> {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.push(context, LoginView.route());
+                                      Navigator.push(
+                                          context, LoginView.route());
                                     },
                                     child: const Icon(
                                       Icons.arrow_back,
